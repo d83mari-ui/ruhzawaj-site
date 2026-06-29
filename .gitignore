@@ -1,0 +1,71 @@
+# ============================================================================
+# RuhZawaj — .gitignore
+# ============================================================================
+
+# ---- Operating system files --------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ---- Editor / IDE files ------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+.classpath
+.history/
+.tmp/
+
+# ---- Node / npm (in case any tooling is added later) ------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json.tmp
+.pnp
+.pnp.js
+
+# ---- Logs --------------------------------------------------------------------
+*.log
+logs/
+
+# ---- Environment / secrets ---------------------------------------------------
+.env
+.env.local
+.env.*.local
+.env.production
+*.pem
+*.key
+
+# ---- Build / cache directories ----------------------------------------------
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+out/
+
+# ---- Python (in case scripts are added) -------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+*.egg-info/
+
+# ---- Misc --------------------------------------------------------------------
+*.bak
+*.tmp
+*.temp
+.tern-port
