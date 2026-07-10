@@ -56,12 +56,45 @@
   }
 
   // ------------------------------------------------------------------
+  // Header hamburger menu — used on every page
+  // ------------------------------------------------------------------
+  function initBurgerMenu() {
+    var burgerBtn = document.getElementById('burgerBtn');
+    var menuPanel = document.getElementById('menuPanel');
+    if (!burgerBtn || !menuPanel) return;
+
+    burgerBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = menuPanel.classList.toggle('open');
+      burgerBtn.classList.toggle('open', isOpen);
+      burgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (menuPanel.classList.contains('open') && !menuPanel.contains(e.target) && e.target !== burgerBtn) {
+        menuPanel.classList.remove('open');
+        burgerBtn.classList.remove('open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    menuPanel.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menuPanel.classList.remove('open');
+        burgerBtn.classList.remove('open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // ------------------------------------------------------------------
   // Boot when DOM is ready
   // ------------------------------------------------------------------
   function boot() {
     initFaqAccordion();
     initScrollReveal();
     initYearStamp();
+    initBurgerMenu();
   }
 
   if (document.readyState === 'loading') {
